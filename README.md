@@ -6,6 +6,10 @@ This tool provides a user-friendly interface for inputting health parameters and
 
 For more details on how we developed the heart disease prediction model, please refer to the following link: https://github.com/SimranS22/Heart-Disease-Prediction-Model-SurTech
 
+### Demo 
+
+https://github.com/user-attachments/assets/85eb07c6-df5a-4bf2-bbbc-b7b48ffa3fd8
+
 ## 🛠 **Technologies Used**  
 - **Flask**: A lightweight and powerful web framework for Python.  
 - **Python**: The programming language powering the backend logic and the prediction model.  
@@ -20,10 +24,6 @@ GitHub Codespaces ♥️ Flask provides a seamless environment to build and depl
 - **Prediction Model**: Utilizes a machine learning model to predict the likelihood of heart disease based on user inputs.  
 - **Flask Framework**: Powers the backend of the application for smooth functionality.  
 - **GitHub Codespaces**: Simplifies development and hosting with a ready-to-go workspace.
-- 
-### Demo 
-
-https://github.com/user-attachments/assets/85eb07c6-df5a-4bf2-bbbc-b7b48ffa3fd8
 
 ## 🛠 **How to Run This Project**  
 
