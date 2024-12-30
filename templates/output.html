@@ -24,9 +24,11 @@
             {%endif%}
            
             {% if yes_hd > no_hd %}
-                <h3 class="inp1"> There is a {{yes_hd}} % chance of Heart Disease. Please consult a doctor.</h3>
+                <h3 class="inp1"> There is a {{yes_hd}} % likelihood of heart disease.</h3>
+                <p class="pinp">It is strongly recommended that you consult a doctor for further evaluation and guidance.</p>
             {% else %}           
-                <h3 class="inp2"> There is a {{no_hd}} % chance of NO Heart Disease. You are safe.</h3>
+                <h3 class="inp2"> There is a {{no_hd}} % likelihood that you do not have heart disease, and you appear to be in the clear.</h3>
+                <p class="pinp">However, if you have any concerns or doubts, it’s always best to consult a doctor for a professional evaluation.</p>
             {%endif%}
                 
             <input type="submit" id="btnn" value="Home">
