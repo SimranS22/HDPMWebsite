@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDPM</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
+    <link rel="manifest" href="/static/icons/site.webmanifest">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style_out.css')}}">
+    
+</head>
+<body>
+
+    <div class="form-contain">
+        <form action="back" method="GET">
+
+            <h2 class="reshead">RESULT</h2>
+    
+            {% if Name %}
+                <h3 class="heade">Patient Name - {{Name}}</h3>  
+            {%endif%}
+           
+            {% if yes_hd > no_hd %}
+                <h3 class="inp1"> There is a {{yes_hd}} % chance of Heart Disease. Please consult a doctor.</h3>
+            {% else %}           
+                <h3 class="inp2"> There is a {{no_hd}} % chance of NO Heart Disease. You are safe.</h3>
+            {%endif%}
+                
+            <input type="submit" id="btnn" value="Home">
+        </form>
+    </div>
+</body>
+</html>

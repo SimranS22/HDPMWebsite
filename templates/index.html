@@ -1,19 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDPM</title>
+    <!-- tab icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png">
+    <!-- font awesome 4 cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- ion icons -->
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <!-- google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- font awesome cdn link new version-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> 
+
+    <link rel="manifest" href="/static/icons/site.webmanifest">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
 <body>
-    <div class="App">
-        <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
-        </header>
-    </div>
-</body>
+     <!-- Navigation bar starts-->
+     <header class="header">
+        <!-- Logo -->
+        <div class="logo"><img src="/static/images/logo1.png" alt="logo"></div>
+        <!-- Hamburger icon -->
+        <input class="side-menu" type="checkbox" id="side-menu"/>
+        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <!-- Menu -->
+        <nav class="nav">
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Form">Form</a></li>
+            </ul>
+        </nav>
+    </header>
+     <!-- Navigation bar ends -->
 
+     <!-- About section starts -->
+     <section class="image_1" id="#About">
+        <div class="image_1row">
+            <div class="banner">
+                <img src="/static/images/images1.jpg" alt="img" >
+                <p class="headingtext">ABOUT US<br>
+                    <span class="hea">
+This website leverages a machine learning model to give the general population an indication of whether they are more or less likely to be predisposed to heart disease.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Form starts -->
+    <section class="formsec">
+    <div class="formcontain" id="Form">
+    <form action="predict" method="POST">
+        <h1>Heart Disease Prediction</h1>
+        
+        <div class="row">
+            <div class="column">
+                <label for="Name">Patient Name:</label>
+                <input type="text" name="Name">
+            </div>
+            <div class="column">
+                <label for="Age">Age:</label>
+                <input type="number" name="Age">
+            </div>
+        </div>
+        
+        <!-- Add similar rows for other pairs of input fields -->
+        
+        <div class="row">
+            <div class="column">
+                <label for="Sex">Sex:</label>
+                <select name="Sex">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
+            <div class="column">
+                <label for="ChestPainType">Chest Pain Type:</label>
+                <select name="ChestPainType">
+                    <option value="ATA">Atypical Angina (ATA)</option>
+                    <option value="NAP">Non-Anginal Pain (NAP)</option>
+                    <option value="ASY">Asymptomatic (ASY)</option>
+                    <option value="TA">Typical Angina (TA)</option>
+                </select>
+            </div>
+        </div>
+        
+         <div class="row">
+            <div class="column">
+                <label for="RestingBP">Resting Blood Pressure:</label>
+                <input type="number" name="RestingBP">
+            </div>
+        
+            <div class="column">
+                <label for="Chol">Cholesterol:</label>
+                <input type="number" name="Chol">
+            </div>
+         </div>
+        
+       <div class="row">
+            <div class="column">
+                <label for="FastingBS">Fasting Blood Sugar:</label>
+                <input type="number" name="FastingBS">
+            </div>
+        
+            <div class="column">
+                <label for="RestingECG">Resting ECG:</label>
+                <select name="RestingECG">
+                    <option value="Normal">Normal</option>
+                    <option value="ST">ST</option>
+                    <option value="LVH">LVH</option>
+                </select>
+            </div>
+       </div>
+        
+        <div class="row">
+            <div class="column">
+                <label for="MaxHR">Maximum Heart Rate:</label>
+                <input type="number" name="MaxHR">
+            </div>
+        
+            <div class="column">
+                <label for="ExerciseAngina">Exercise-Induced Angina:</label>
+                <select name="ExerciseAngina">
+                    <option value="N">No</option>
+                    <option value="Y">Yes</option>
+                </select>
+            </div>
+        </div>
+        
+       <div class="row">
+            <div class="column">
+                <label for="Oldpeak">Oldpeak:</label>
+                <input type="number" step="0.01" name="Oldpeak">
+            </div>
+        
+            <div class="column">
+                <label for="ST_Slope">ST_Slope:</label>
+                <select name="ST_Slope">
+                    <option value="Up">Up</option>
+                    <option value="Flat">Flat</option>
+                    <option value="Down">Down</option>
+                </select>
+            </div>
+       </div>
+
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+</section>
+    <!-- Form ends -->
+
+    <footer>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            <div class="footerNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Form">Form</a></li>
+                </ul>
+          </div>
+          <div class="footerBottom">
+            <p>Copyright &copy; 2023; Designed by <span class="designer">OUR TEAM</span></p>
+          </div>
+        </div>
+    </footer>
+
+</body>
 </html>
